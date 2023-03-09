@@ -1,31 +1,16 @@
+---
 # Manifest file downloaded from fusion
-externalId: tr-create_asset_hierarchy
-name: create_asset_hierarchy
-query: >
-  SELECT
-    external_id AS externalId,
-    IF(
-      parent_external_id = ''
-      OR parent_external_id IS NULL,
-      '',
-      parent_external_id
-    ) AS parentExternalId,
-    name AS name,
-    json_tuple(metadata,'site','type', 'cycle time', 'Function', 'src', 'Machine type') AS (site, type, cycle_time, function, src, machine_type),
-    to_metadata(site,type, cycle_time, function, src, machine_type) AS metadata,
-    description AS description,
-    'from RAW' AS source,
-    Dataset_id('src:001:sap:ds') AS dataSetId
-  FROM
-    `src:001:sap:db`.assets
+externalId: tr-create_asset_hierarchy_ui
+name: create_asset_hierarchy_ui
+query: transformation.sql
 destination:
-  type: asset_hierarchy
+    type: asset_hierarchy
 ignoreNullFields: true
 shared: true
 action: upsert
 schedule:
-  interval: 0 * * * *
-  isPaused: false
+    interval: 0 * * * *
+    isPaused: false
 dataSetExternalId: _DEPR_src:001:sap:ds_[2023-02-17T14:02:00.759151+01:00]
 # Specify credentials separately like this:
 # authentication:
@@ -61,6 +46,7 @@ dataSetExternalId: _DEPR_src:001:sap:ds_[2023-02-17T14:02:00.759151+01:00]
 #   # Optional: If idP requires providing the audience
 #   audience: ${AUDIENCE}
 
+authentication:
     clientId: ${COGNITE_CLIENT_ID}
     clientSecret: ${COGNITE_CLIENT_SECRET}
     tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token

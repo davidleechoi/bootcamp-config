@@ -93,12 +93,12 @@ bootstrap:
         - ns-name: uc
           description: Use cases for data and products
           ns-nodes:
-            - node-name: uc:001:oee
-              description: use case 001 overall equipment effectiveness
-              shared-access:
-                read:
-                  - node-name: src:001:sap
-                  - node-name: src:002:opcua
+              - node-name: uc:001:oee
+                description: use case 001 overall equipment effectiveness
+                shared-access:
+                    read:
+                        - node-name: src:001:sap
+                        - node-name: src:002:opcua
         # HINT: Add another namespace below
 
 
