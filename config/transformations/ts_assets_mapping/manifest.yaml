@@ -11,7 +11,7 @@ action: update
 schedule:
     interval: 0 * * * *
     isPaused: false
-dataSetExternalId: _DEPR_uc:001:oee:ds_[2023-02-17T14:02:01.956468+01:00]
+dataSetExternalId: uc:001:oee:ds
 # Specify credentials separately like this:
 # authentication:
 #   read:

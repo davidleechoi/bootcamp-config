@@ -11,7 +11,7 @@ action: upsert
 schedule:
     interval: 0 * * * *
     isPaused: false
-dataSetExternalId: _DEPR_src:001:sap:ds_[2023-02-17T14:02:00.759151+01:00]
+dataSetExternalId: src:001:sap:ds
 # Specify credentials separately like this:
 # authentication:
 #   read:
